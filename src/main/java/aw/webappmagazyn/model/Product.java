@@ -3,16 +3,13 @@ package aw.webappmagazyn.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-public class product {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +17,12 @@ public class product {
     private String name;
     private LocalDateTime creationDate;
     private LocalDateTime modificationDate;
+    @ManyToOne
+    private ProductType productType;
 
+    private int amount;
+    private int price;
+    private String description;
+    private boolean hidden;
 
 }
