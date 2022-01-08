@@ -15,11 +15,31 @@
     <ul class="navbar-nav" style="font-size: 90%">
 
       <li class="nav-item">
-        <a class="nav-link" href="#" th:href="@{/}"> Home</a>
+        <a class="nav-link" href="#" th:href="@{/}"> Przegląd</a>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"
+           data-toggle="dropdown"> Produkty</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" th:href="@{/}"><i class="fas fa-bolt"></i> Produkty</a>
+          <a class="dropdown-item" href="#" th:href="@{/}"><i class="fas fa-box"></i> Dodaj Produkt</a>
+          <a class="dropdown-item" href="#" th:href="@{/}"><i class="fas fa-users"></i> Wydaj Produkt</a>
+        </div>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#" th:href="@{/}"> Help</a>
+        <a class="nav-link" href="#" th:href="@{/}"> Historia</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"
+           data-toggle="dropdown"> Typy produktów</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" th:href="@{/}"><i class="fas fa-bolt"></i> Lista Typów</a>
+          <a class="dropdown-item" href="#" th:href="@{/}"><i class="fas fa-box"></i> Dodaj Typ</a>
+        </div>
       </li>
 
     </ul>
