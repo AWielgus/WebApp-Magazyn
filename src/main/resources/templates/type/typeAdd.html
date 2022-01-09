@@ -22,8 +22,6 @@
                                 <button class="btn btn-danger" type="submit">Zapisz</button>
                             </div>
                         </div>
-
-
                         <hr class="mt-1 mb-2"/>
                     </div>
 
@@ -42,8 +40,8 @@
                                 </div>
                             </div>
                             <div class="hide">
-                                <input style="visibility: hidden" type = "datetime-local" th:field="*{creationDate}"/>
-                                <input style="visibility: hidden" type = "datetime-local" th:field="*{modificationDate}"/>
+                                <input style="visibility: hidden" type = "date" th:field="*{creationDate}"/>
+                                <input style="visibility: hidden" type = "date" th:field="*{modificationDate}"/>
                                 <input style="visibility: hidden" type = checkbox th:field="*{hidden}">
                                 <input style="visibility: hidden" type = "number" th:field="*{id}">
                             </div>

@@ -31,4 +31,5 @@ public class ProductType {
                 ", hidden=" + hidden +
                 '}';
     }
+
 }
