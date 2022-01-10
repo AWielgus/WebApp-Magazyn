@@ -10,21 +10,68 @@
 <!--/*/ <th:block th:include="fragments/navbar.html :: navbar"></th:block> /*/-->
 
 <div class="container-fluid px-4 mt-3 pb-4">
+
     <div class="row">
         <div class="col-10 offset-1">
             <div class="card card-outline-secondary mb-1">
-                <div class="card-header container-fluid" style="padding-bottom:0; border-bottom:0;">
-                    <div style="display: flex; justify-content: left">
-                        <div> Obecny : </div>
-                    </div>
-                    <hr class="mt-1 mb-2"/>
-                </div>
-
                 <div class="card-body">
-
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade active show" id="status" role="tabpanel" aria-labelledby="status-tab">
-                            test
+                            <table class="table table-responsive table-hover table-striped">
+                                <thead>
+                                <tr>
+
+                                    <td style="width: 10%">ID</td>
+                                    <td style="width: 15%">Nazwa</td>
+                                    <td style="width: 25%">Opis</td>
+                                    <td style="width: 15%">Typ produktu</td>
+                                    <td style="width: 8%">Ilość</td>
+                                    <td style="width: 7%">Cena</td>
+                                    <td style="width: 10%">Akcja</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="list: ${listOfProducts}">
+                                    <td th:text="${list.id}"></td>
+                                    <td th:text="${list.name}"></td>
+                                    <td th:text="${list.description}"></td>
+                                    <td th:text="${list.productType.getName()}"></td>
+                                    <td th:text="${list.amount}"></td>
+                                    <td th:text="${list.price}"></td>
+                                    <td class="no-wrap">
+                                        <form th:action="${ 'productList/edit/' + list.id}">
+                                            <button type="submit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edytuj</button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    th:attr="data-target='#confirmDelete'+${list.id}"><i class="fas fa-trash-alt"></i> Usuń
+                                            </button>
+                                        </form>
+
+                                        <div class="modal fade" th:id="confirmDelete+${list.id}" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="confirmDeleteLongTitle">Usuwanie Produktu</h5>
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Czy na pewno chcesz usunąć produkt <span th:text="${list.name}"
+                                                                                             style="font-weight:bold"></span>?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                                                        <a href="#" th:href="${'productList/remove/' + list.id}" role="button" class="btn btn-danger">Usuń
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

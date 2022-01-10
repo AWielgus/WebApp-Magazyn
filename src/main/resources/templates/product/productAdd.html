@@ -43,7 +43,7 @@
                                     <div class="col-6">
                                         <label class="col-form-label form-control-label">Typ produktu:</label>
                                         <div>
-                                            <select class="col-form-label col-10 offset-1" th:field="*{productTypeID}">
+                                            <select class="col-form-label col-10 offset-1" th:field="*{productType}">
                                                 <option th:each="i : ${type}" th:value="${i.id}" th:text="${i.name}">
                                             </select>
                                         </div>

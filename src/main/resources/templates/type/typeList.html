@@ -31,7 +31,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="productType: ${list}" th:if="!${productType.hidden}">
+                                    <tr th:each="productType: ${list}">
                                         <td th:text="${productType.id}"></td>
                                         <td th:text="${productType.name}"></td>
                                         <td th:text="${productType.description}"></td>

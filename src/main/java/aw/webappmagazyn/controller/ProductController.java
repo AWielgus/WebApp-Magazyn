@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
@@ -38,7 +39,35 @@ public class ProductController {
         product.setCreationDate(LocalDateTime.now());
         product.setModificationDate(LocalDateTime.now());
         productRepository.save(product);
+
+        model.addAttribute("listOfProducts",productRepository.findAll());
+        return "redirect:/productList";
+    }
+
+    @GetMapping("/productList")
+    public String productList(Model model){
+        model.addAttribute("listOfProducts",productRepository.findAll());
         return "product/productList";
+    }
+
+    @GetMapping("/productList/remove/{id}")
+    public String productRemove(@PathVariable Long id) {
+        productRepository.deleteById(id);
+
+        return "redirect:/productList";
+    }
+    @GetMapping("/productList/edit/{id}")
+    public String productEdit(@PathVariable Long id, Model model) {
+        model.addAttribute("product",productRepository.getById(id));
+        return "product/productEdit";
+    }
+
+    @PostMapping("/productList/update")
+    public String productUpdate(Product product){
+//        product.setModificationDate(LocalDateTime.now());
+//        productRepository.save(product);
+        System.out.println(product.toString());
+        return "redirect:/productList";
     }
 
 }

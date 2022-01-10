@@ -17,7 +17,9 @@ public class Product {
     private String name;
     private LocalDateTime creationDate;
     private LocalDateTime modificationDate;
-    private long productTypeID;
+    @ManyToOne
+    @JoinColumn(name = "product_type_id")
+    private ProductType productType;
     private int amount;
     private int price;
     private String description;
@@ -30,7 +32,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", creationDate=" + creationDate +
                 ", modificationDate=" + modificationDate +
-                ", productTypeID=" + productTypeID +
+                ", productTypeID=" + productType +
                 ", amount=" + amount +
                 ", price=" + price +
                 ", description='" + description + '\'' +
