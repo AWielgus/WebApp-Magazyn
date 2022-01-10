@@ -57,7 +57,7 @@ public class TypeController {
     }
 
     @PostMapping("/typeList/update")
-    public String printerAdd(ProductType productType){
+    public String editUpdate(ProductType productType){
         productType.setModificationDate(LocalDateTime.now());
         productTypeRepository.save(productType);
         return "redirect:/typeList";

@@ -8,7 +8,6 @@
 </head>
 <body>
 <!--/*/ <th:block th:include="fragments/navbar.html :: navbar"></th:block> /*/-->
-
 <div class="container-fluid px-4 mt-3 pb-4">
     <div class="row">
         <div class="col-10 offset-1">
@@ -24,44 +23,44 @@
                         </div>
                         <hr class="mt-1 mb-2"/>
                     </div>
-
                     <input type="number" th:field="*{id}" hidden>
                     <input type="text" th:field="*{creationDate}" hidden>
                     <input type="text" th:field="*{modificationDate}" hidden>
                     <input type="checkbox" th:field="*{hidden}" hidden>
                     <input type="number" th:field="*{amount}" hidden>
-
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                                <label class="col-lg-2 col-form-label form-control-label">Nazwa produktu:</label>
-                                <div class="col-lg-11">
-                                    <input type="text" th:field="*{name}" class="form-control" placeholder="Typ" required/>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="col-form-label form-control-label">Nazwa produktu:</label>
+                                        <div>
+                                            <input type="text" th:field="*{name}" class="form-control" placeholder="Typ" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="col-form-label form-control-label">Typ produktu:</label>
+                                        <div>
+                                            <select class="col-form-label col-10 offset-1" th:field="*{productTypeID}">
+                                                <option th:each="i : ${type}" th:value="${i.id}" th:text="${i.name}">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="col-form-label form-control-label">Cena:</label>
+                                        <div>
+                                            <input type="number" th:field="*{price}" class="form-control" placeholder="Cena"/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label class="col-lg-2 col-form-label form-control-label">Opis:</label>
-                                <div class="col-lg-11">
-                                    <input type="text" th:field="*{description}" class="form-control" placeholder="Opis"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <label class="col-lg-2 col-form-label form-control-label">Typ produktu:</label>
-                                <div class="col-lg-11">
-                                    <select class="col-form-label col-4 " th:field="*{productTypeID}">
-                                        <option th:each="i : ${type}" th:value="${i.id}" th:text="${i.name}">
-                                    </select>
-                                </div>
-                            </div>
-
-
-
-                            <div class="col-6">
-                                <label class="col-lg-2 col-form-label form-control-label">Opis:</label>
-                                <div class="col-lg-11">
-                                    <input type="text" th:field="*{description}" class="form-control" placeholder="Opis"/>
+                                <label class="col-form-label form-control-label">Opis:</label>
+                                <div>
+<!--                                    <input type="text" th:field="*{description}" class="form-control" placeholder="Opis"/>-->
+                                    <textarea class="form-control" th:field="*{description}" rows="3" placeholder="Opis"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -70,10 +69,7 @@
             </div>
         </div>
     </div>
-
-
 </div>
-
 <!--/*/ <th:block th:include="fragments/footer.html :: footer"></th:block> /*/-->
 </body>
 </html>

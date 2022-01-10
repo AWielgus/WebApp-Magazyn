@@ -23,4 +23,18 @@ public class Product {
     private String description;
     private boolean hidden;
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", creationDate=" + creationDate +
+                ", modificationDate=" + modificationDate +
+                ", productTypeID=" + productTypeID +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", hidden=" + hidden +
+                '}';
+    }
 }

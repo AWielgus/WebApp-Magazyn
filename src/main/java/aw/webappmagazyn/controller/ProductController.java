@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,11 @@ public class ProductController {
 
     @PostMapping("/productAdd")
     public String addProductSave(@ModelAttribute Product product, Model model){
-        System.out.println(product.getName());
+        product.setHidden(false);
+        product.setAmount(0);
+        product.setCreationDate(LocalDateTime.now());
+        product.setModificationDate(LocalDateTime.now());
+        productRepository.save(product);
         return "product/productList";
     }
 
