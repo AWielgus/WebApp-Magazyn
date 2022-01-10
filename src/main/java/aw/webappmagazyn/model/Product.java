@@ -17,9 +17,7 @@ public class Product {
     private String name;
     private LocalDateTime creationDate;
     private LocalDateTime modificationDate;
-    @ManyToOne
-    private ProductType productType;
-
+    private long productTypeID;
     private int amount;
     private int price;
     private String description;

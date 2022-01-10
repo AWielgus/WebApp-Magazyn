@@ -63,8 +63,4 @@ public class TypeController {
         return "redirect:/typeList";
     }
 
-//    <select class="col-form-label col-4 " id="printer-ip-input">
-//         <option th:each="i : ${printers}" th:value="${i.ip +';'+ i.port}" th:text="${i.ip +' '+ i.name}">
-//    </select>
-
 }
