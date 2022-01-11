@@ -2,7 +2,7 @@ package aw.webappmagazyn.controller;
 
 
 import aw.webappmagazyn.model.ProductType;
-import aw.webappmagazyn.repository.ProductTypeRepository;
+import aw.webappmagazyn.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import java.util.List;
 public class TypeController {
 
     @Autowired
-    ProductTypeRepository productTypeRepository;
+    ProductTypeService productTypeService;
 
     @GetMapping("/typeAdd")
     public String addTypeSite( Model model){
@@ -32,7 +32,7 @@ public class TypeController {
         productType.setCreationDate(LocalDateTime.now());
         productType.setModificationDate(LocalDateTime.now());
         productType.setHidden(false);
-        productTypeRepository.save(productType);
+        productTypeService.save(productType);
 
         return "redirect:/typeList";
     }
@@ -40,26 +40,29 @@ public class TypeController {
     @GetMapping("/typeList")
     public String typeList(Model model){
 
-        List<ProductType> listOfTypes = productTypeRepository.findAll();
+        List<ProductType> listOfTypes = productTypeService.findAll();
         model.addAttribute("list",listOfTypes);
         return "type/typeList";
     }
 
     @GetMapping("/typeList/remove/{id}")
     public String typeRemove(@PathVariable Long id) {
-        productTypeRepository.deleteById(id);
+        ProductType productType = productTypeService.getById(id);
+        productType.setHidden(true);
+        productType.setModificationDate(LocalDateTime.now());
+        productTypeService.save(productType);
         return "redirect:/typeList";
     }
     @GetMapping("/typeList/edit/{id}")
     public String typeEdit(@PathVariable Long id, Model model) {
-        model.addAttribute("productType",productTypeRepository.getById(id));
+        model.addAttribute("productType",productTypeService.getById(id));
         return "type/typeEdit";
     }
 
     @PostMapping("/typeList/update")
     public String editUpdate(ProductType productType){
         productType.setModificationDate(LocalDateTime.now());
-        productTypeRepository.save(productType);
+        productTypeService.save(productType);
         return "redirect:/typeList";
     }
 

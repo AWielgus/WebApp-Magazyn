@@ -14,12 +14,8 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-    private long changeAmount;
-    private long changeValue;
+    private String productId;
+    private String description;
     private LocalDateTime updateTime;
 
 }
