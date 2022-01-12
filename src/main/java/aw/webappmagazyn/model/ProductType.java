@@ -20,16 +20,4 @@ public class ProductType {
     private String description;
     private boolean hidden;
 
-    @Override
-    public String toString() {
-        return "ProductType{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", creationDate=" + creationDate +
-                ", modificationDate=" + modificationDate +
-                ", description='" + description + '\'' +
-                ", hidden=" + hidden +
-                '}';
-    }
-
 }

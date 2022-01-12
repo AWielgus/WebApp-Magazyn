@@ -28,12 +28,10 @@ public class TypeController {
 
     @PostMapping("/typeAdd")
     public String saveNewType(@ModelAttribute ProductType productType){
-
         productType.setCreationDate(LocalDateTime.now());
         productType.setModificationDate(LocalDateTime.now());
         productType.setHidden(false);
         productTypeService.save(productType);
-
         return "redirect:/typeList";
     }
 
