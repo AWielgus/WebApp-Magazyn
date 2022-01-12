@@ -18,26 +18,15 @@
         <a class="nav-link" href="#" th:href="@{/}"> Przegląd</a>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#"
-           data-toggle="dropdown"> Produkty</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#" th:href="@{/productList}"><i class="fas fa-bolt"></i> Produkty</a>
-          <a class="dropdown-item" href="#" th:href="@{/productAdd}"><i class="fas fa-box"></i> Dodaj Produkt</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="#" th:href="@{/productList}"> Produkty</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#" th:href="@{/history}"> Historia</a>
+        <a class="nav-link" href="#" th:href="@{/typeList}"> Typy produktów</a>
       </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#"
-           data-toggle="dropdown"> Typy produktów</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#" th:href="@{/typeList}"><i class="fas fa-bolt"></i> Lista Typów</a>
-          <a class="dropdown-item" href="#" th:href="@{/typeAdd}"><i class="fas fa-box"></i> Dodaj Typ</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="#" th:href="@{/history}"> Historia</a>
       </li>
 
     </ul>
